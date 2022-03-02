@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react-cdn</title>
+
+    <!--cdn react-->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+    <!--cdn babel-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--con las llaves podemos meter lógica al código, podemos llamar variables y mucho más-->
+    <script type="text/babel">
+        const Interpolar = () => {
+            const nombre = prompt("¿Cuál es tu nombre?")
+
+            return(
+                <div>
+                    <h1>
+                        Hola {nombre}
+                    </h1>
+                    <h1>
+                        Fecha: {new Date().getFullYear()}
+                    </h1>
+                    <hr />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Interpolar />, document.getElementById("root"));
+    </script>
+    
+
+    <!--componente funcional
+    <script type="text/babel">
+        const Saludo = () => {
+            return (
+                <div>
+                    <h1>hola mundo</h1>
+                    <ol>
+                        <li>limón</li>
+                        <li>pera</li>
+                        <li>mango</li>
+                    </ol>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Saludo />, document.getElementById("root"));
+    </script>
+    -->
+
+    <!-- ejemplo componentes de forma antigua (Legacy)
+    <script type="text/babel">
+        class Saludo extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1>hola mundo desde react - Legacy</h1>
+                        <ul>
+                            <li>lulo</li>
+                            <li>piña</li>
+                            <li>manzana</li>
+                        </ul>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<Saludo />, document.getElementById("root"));
+    </script>
+    -->
+
+    <!-- ejemplo con babel
+    <div id="root"></div>
+    <script type="text/babel">
+        ReactDOM.render(
+            <div>
+                <ul>
+                    <li>Manzana</li>
+                    <li>Uva</li>
+                    <li>Mango</li>
+                </ul>
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+    -->
+
+    <!-- ejemplo sin babel
+        <script>
+        ReactDOM.render(
+            React.createElement(
+                "ol",
+                null,
+                React.createElement("li", null, "uva"),
+                React.createElement("li", null, "limón"),
+                React.createElement("li", null, "mango"),
+            ), document.getElementById("root")
+        );
+    </script>
+    -->
+</body>
+
+</html>
